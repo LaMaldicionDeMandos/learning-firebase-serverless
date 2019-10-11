@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService, AuthMethod} from '../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  phone: string;
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
+  }
+
+  loginWithPhone() {
+    this.authenticationService.loginWithMethod(AuthMethod.PHONE, this.phone);
   }
 
 }

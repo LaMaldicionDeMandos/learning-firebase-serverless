@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import {AuthenticationService} from './services/authentication.service';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,9 +22,12 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
