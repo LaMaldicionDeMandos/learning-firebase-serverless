@@ -1,7 +1,26 @@
 <div>
   <label>
     Login con telefono
-    <input type="tel" [(ngModel)]="phone">
-    <button (click)="loginWithPhone()">Login con teléfono</button>
+    <input type='tel' [(ngModel)]="phone">
+    <button id="phone_login_button" (click)="loginWithPhone()">Login con teléfono</button>
   </label>
+  <label *ngIf="phoneNumberIsValid">
+    Codigo de verificación
+    <input type='tel' [(ngModel)]="verificationCode">
+    <button (click)="phoneVerificationCode()">Envíar Codigo</button>
+  </label>
+
+  <div *ngIf="loginInfo">
+    <label>ID: {{user?.uid}}</label>
+    <label>Display Name: {{user?.displayName}}</label>
+    <label>Email: {{user?.email}}</label>
+    <label>Email Verified: {{user?.emailVerified}}</label>
+    <label>Creation Time: {{user?.metadata.creationTime}}</label>
+    <label>Last sign in Time: {{user?.metadata.lastSignInTime}}</label>
+    <label>Phone Number: {{user?.phoneNumber}}</label>
+    <label>Photo URL: {{user?.photoURL}}</label>
+    <label>Refresh Token: {{user?.refreshToken}}</label>
+    <label>Is new User: {{loginInfo.additionalUserInfo.isNewUser}}</label>
+    <label>Provider ID: {{loginInfo.additionalUserInfo.providerId}}</label>
+  </div>
 </div>

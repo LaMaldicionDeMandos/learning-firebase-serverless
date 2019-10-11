@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learning-firebase-serverless-app';
+
+  constructor(public app: FirebaseApp) {}
 }

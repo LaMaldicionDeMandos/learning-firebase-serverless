@@ -8,6 +8,10 @@ import {AuthenticationService, AuthMethod} from '../services/authentication.serv
 })
 export class RegisterComponent implements OnInit {
   phone: string;
+  verificationCode: string;
+  phoneNumberIsValid = false;
+  loginInfo;
+  user;
 
   constructor(private authenticationService: AuthenticationService) {}
 
@@ -15,7 +19,19 @@ export class RegisterComponent implements OnInit {
   }
 
   loginWithPhone() {
-    this.authenticationService.loginWithMethod(AuthMethod.PHONE, this.phone);
+    this.authenticationService.loginWithMethod(AuthMethod.PHONE, this.phone)
+      .then(result => this.phoneNumberIsValid = true)
+      .catch(console.log);
+  }
+
+  phoneVerificationCode() {
+    this.authenticationService.phoneVerificationCode(this.verificationCode)
+      .then(result => {
+        console.log(result);
+        this.loginInfo = result;
+        this.user = result.user;
+      })
+      .catch(console.log);
   }
 
 }
