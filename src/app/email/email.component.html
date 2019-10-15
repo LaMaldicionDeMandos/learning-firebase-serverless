@@ -1,1 +1,21 @@
-<p>email works!</p>
+<div>
+  <label>
+    Necesitamos tu email para mandarte notificaciones
+    <input type='email' [(ngModel)]="email">
+    <button (click)="setMail()">Enviar</button>
+  </label>
+
+  <div *ngIf="userInfo">
+    <label>ID: {{userInfo.user?.uid}}</label>
+    <label>Display Name: {{userInfo.user?.displayName}}</label>
+    <label>Email: {{userInfo.user?.email}}</label>
+    <label>Email Verified: {{userInfo.user?.emailVerified}}</label>
+    <label>Creation Time: {{userInfo.user?.metadata.creationTime}}</label>
+    <label>Last sign in Time: {{userInfo.user?.metadata.lastSignInTime}}</label>
+    <label>Phone Number: {{userInfo.user?.phoneNumber}}</label>
+    <label>Photo URL: {{userInfo.user?.photoURL}}</label>
+    <label>Refresh Token: {{userInfo.user?.refreshToken}}</label>
+    <label>Is new User: {{userInfo.additionalUserInfo.isNewUser}}</label>
+    <label>Provider ID: {{userInfo.additionalUserInfo.providerId}}</label>
+  </div>
+</div>
