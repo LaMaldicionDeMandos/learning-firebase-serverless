@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from '../environments/environment';
@@ -19,7 +18,6 @@ import { EmailComponent } from './email/email.component';
     AppComponent,
     AppTopBarComponent,
     RegisterComponent,
-    LoginComponent,
     EmailComponent
   ],
   imports: [
