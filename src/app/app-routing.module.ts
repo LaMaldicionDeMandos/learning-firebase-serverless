@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {RegisterComponent} from './register/register.component';
-import {EmailComponent} from './email/email.component';
+import {OnboardingemailComponent} from './onboarding_email/onboardingemail.component';
 
 const routes: Routes = [
   { path: '', component: RegisterComponent},
-  { path: 'onboarding/email', component: EmailComponent}
+  { path: 'onboarding/email', component: OnboardingemailComponent}
 ];
 
 @NgModule({

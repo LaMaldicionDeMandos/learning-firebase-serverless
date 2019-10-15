@@ -1,0 +1,25 @@
+<div>
+  <label>
+    Necesitamos tu email para mandarte notificaciones
+    <input type='email' [(ngModel)]="email">
+    <button (click)="setEmail()">Enviar</button>
+  </label>
+
+  <div>
+    <!--
+    <label>ID: {{user.uid}}</label>
+    <label>Display Name: {{user.displayName}}</label>
+    <label>Email: {{user.email}}</label>
+    <label>Email Verified: {{user.emailVerified}}</label>
+    <label>Creation Time: {{user.metadata.creationTime}}</label>
+    <label>Last sign in Time: {{user.metadata.lastSignInTime}}</label>
+    -->
+    <label>Phone Number: {{user.phoneNumber}}</label>
+    <!--
+    <label>Photo URL: {{user.photoURL}}</label>
+    <label>Refresh Token: {{user.refreshToken}}</label>
+    <label>Is new User: {{userInfo.additionalUserInfo.isNewUser}}</label>
+    <label>Provider ID: {{userInfo.additsionalUserInfo.providerId}}</label>
+    -->
+  </div>
+</div>

@@ -10,7 +10,7 @@ import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import {AuthenticationService} from './services/authentication.service';
 import {FormsModule} from '@angular/forms';
-import { EmailComponent } from './email/email.component';
+import { OnboardingemailComponent } from './onboarding_email/onboardingemail.component';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { EmailComponent } from './email/email.component';
     AppComponent,
     AppTopBarComponent,
     RegisterComponent,
-    EmailComponent
+    OnboardingemailComponent
   ],
   imports: [
     BrowserModule,
