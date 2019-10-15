@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService, AuthMethod} from '../services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   loginInfo;
   user;
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
   }
@@ -30,6 +31,8 @@ export class RegisterComponent implements OnInit {
         console.log(result);
         this.loginInfo = result;
         this.user = result.user;
+        localStorage.setItem('user_info', JSON.stringify(result));
+        this.router.navigateByUrl('onboarding/email');
       })
       .catch(console.log);
   }
