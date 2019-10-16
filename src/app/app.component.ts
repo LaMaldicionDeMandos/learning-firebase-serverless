@@ -10,4 +10,5 @@ export class AppComponent {
   title = 'learning-firebase-serverless-app';
 
   constructor(public app: FirebaseApp) {}
+
 }

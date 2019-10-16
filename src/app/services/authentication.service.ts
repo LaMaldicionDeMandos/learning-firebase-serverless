@@ -24,6 +24,20 @@ export class AuthenticationService {
     return this.confirmationResult.confirm(code);
   }
 
+  getUser(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let user = auth().currentUser;
+      if (user) {
+        resolve(user);
+      } else {
+        setTimeout(() => {
+          user = auth().currentUser;
+          if (user)  resolve(user);  else  reject();
+        }, 500);
+      }
+    });
+  }
+
   private authWithPhone = (phone) => {
     this.firebaseAuth.auth.languageCode = 'es';
     this.reCaptchaVerifier = new auth.RecaptchaVerifier('phone_login_button', {
@@ -32,7 +46,9 @@ export class AuthenticationService {
         console.log('re captcha ok? --> ' + JSON.stringify(response));
 
       }});
-    return this.firebaseAuth.auth.signInWithPhoneNumber(phone, this.reCaptchaVerifier)
-      .then(result => this.confirmationResult = result);
+    return auth().setPersistence(auth.Auth.Persistence.LOCAL)
+      .then(() => this.firebaseAuth.auth.signInWithPhoneNumber(phone, this.reCaptchaVerifier))
+      .then(result => this.confirmationResult = result)
+      .catch(console.log);
   }
 }
